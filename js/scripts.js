@@ -12,5 +12,26 @@ console.log(heading);
 
 // querySelectorAll
 
+/* Retorna 0 si el selector está malo o no hay ningún elemento
+    hasta todos los elementos que concuerden con el selector tipo CSS
+    que se le pase a la función querySelectroAll()
+*/
+
+const enlaces = document.querySelectorAll('.navegacion a')
+console.log(enlaces);
+
+/* Acceder a un elemeto en específico */
+console.log(enlaces[0]);
+
+enlaces[0].textContent = "nuevo enlace"
+
+/*  Modificar enlace del elemento */
+enlaces[0].href = 'https://www.google.com'
+
+/* Añadirle clase nueva */
+enlaces[0].classList.add('XD-class')
+
+/* Remover una clase */
+enlaces[0].classList.remove('XD-class')
 
 //getElementById

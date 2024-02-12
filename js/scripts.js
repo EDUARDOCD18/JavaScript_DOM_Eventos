@@ -35,3 +35,5 @@ enlaces[0].classList.add('XD-class')
 enlaces[0].classList.remove('XD-class')
 
 //getElementById
+const heading2 = document.getElementById('heading') //Poco usado en nuevas versiones de JS
+console.log(heading2);

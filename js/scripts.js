@@ -59,3 +59,31 @@ const navegacion = document.querySelector('.navegacion')
 navegacion.appendChild(nuevoEnlace)
 
 //console.log(nuevoEnlace);
+
+/* 147 - Eventos en JS */
+
+// Registrar eventos
+console.log(1);
+
+window.addEventListener('load', () => {
+    console.log(2);
+})
+/* 
+    - window es el objeto global, todo el documento
+    - load espera a que todo cargue, es un evento
+*/
+window.onload = () => {
+    console.log(3);
+}
+/* -- window.addEventListener y window.onload son lo mismo -- */
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log(4);
+})
+
+/* -- DOMContentLoaded solo espera a que se descargue el HTML -- */
+console.log(5);
+
+window.onscroll = ()=>{
+    console.log("Scrolling...");
+}

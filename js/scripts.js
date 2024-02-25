@@ -63,30 +63,30 @@ navegacion.appendChild(nuevoEnlace)
 /* 147 - Eventos en JS */
 
 // Registrar eventos
-console.log(1);
+/* console.log(1);
 
 window.addEventListener('load', () => {
     console.log(2);
-})
+}) */
 /* 
     - window es el objeto global, todo el documento
     - load espera a que todo cargue, es un evento
 */
-window.onload = () => {
-    console.log(3);
-}
+/*  window.onload = () => {
+    console.log(3); 
+} */
 /* -- window.addEventListener y window.onload son lo mismo -- */
 
-document.addEventListener('DOMContentLoaded', () => {
+/* document.addEventListener('DOMContentLoaded', () => {
     console.log(4);
-})
+}) */
 
 /* -- DOMContentLoaded solo espera a que se descargue el HTML -- */
-console.log(5);
+/* console.log(5); */
 
-window.onscroll = () => {
+/* window.onscroll = () => {
     console.log("Scrolling...");
-}
+} */
 
 /* 148 - Reaccionar a clicks en Js */
 /* -- Seleccionar elementos y asociarles un evento --  */
@@ -97,3 +97,29 @@ btnEnviar.addEventListener('click', (evento) => {
     // preventDefault() Previene la acción por defecto. Utíl para validar formulario
     console.log("Enviando formulario");
 })
+
+/* 149 - EVENTOS CON EL TECLADO */
+
+// -- Eventos con los inputs y los text area -- 
+const datos = {
+    nombre: '',
+    email: '',
+    mensaje: ''
+    // las llaves deben llevar el mismo nombre de los inputs
+}
+const nombre = document.querySelector("#nombre")
+const email = document.querySelector("#email")
+const mensaje = document.querySelector("#mensaje")
+
+nombre.addEventListener('input', leerTexto)
+email.addEventListener('input', leerTexto)
+mensaje.addEventListener('input', leerTexto)
+
+function leerTexto(e) {
+    // console.log(e.target.value);
+    datos[e.target.id] = e.target.value
+    datos[e.target.id] = e.target.value
+    datos[e.target.id] = e.target.value
+
+    console.log(datos);
+}

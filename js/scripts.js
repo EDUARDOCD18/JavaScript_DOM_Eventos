@@ -84,6 +84,16 @@ document.addEventListener('DOMContentLoaded', () => {
 /* -- DOMContentLoaded solo espera a que se descargue el HTML -- */
 console.log(5);
 
-window.onscroll = ()=>{
+window.onscroll = () => {
     console.log("Scrolling...");
 }
+
+/* 148 - Reaccionar a clicks en Js */
+/* -- Seleccionar elementos y asociarles un evento --  */
+const btnEnviar = document.querySelector('.boton--primario')
+btnEnviar.addEventListener('click', (evento) => {
+    console.log(evento);
+    evento.preventDefault()
+    // preventDefault() Previene la acción por defecto. Utíl para validar formulario
+    console.log("Enviando formulario");
+})

@@ -108,6 +108,8 @@ const datos = {
   mensaje: "",
   // las llaves deben llevar el mismo nombre de los inputs
 };
+
+const formulario = document.querySelector(".formulario");
 const nombre = document.querySelector("#nombre");
 const email = document.querySelector("#email");
 const mensaje = document.querySelector("#mensaje");
@@ -115,6 +117,26 @@ const mensaje = document.querySelector("#mensaje");
 nombre.addEventListener("input", leerTexto);
 email.addEventListener("input", leerTexto);
 mensaje.addEventListener("input", leerTexto);
+
+// *Asigna la acción al evento
+formulario.addEventListener("submit", (evento) => {
+  evento.preventDefault();
+
+  // Validar formulario
+  const { nombre, email, mensaje } = datos; // Uso del destructuring
+
+  // -- Validar que los campos NO esten vacíos --
+  // En caso de estar vacíos;
+  if (nombre === "" || email === "" || mensaje === "") {
+    mostarError("Todos los campos son obligatorios");
+    return; // corta el código si la condición se cumple
+  }
+
+  // -- Alerta de campos completados --
+  mostrarMensaje("Mensaje enviado correctamente");
+
+  console.log("enviando formulario");
+});
 
 function leerTexto(e) {
   // console.log(e.target.value);
@@ -124,16 +146,29 @@ function leerTexto(e) {
 
   console.log(datos);
 }
-/* 150 - Eventos con formulario */
-// -- Evento con submit --
 
-// *Selecciona el elemento HTML
-const formulario = document.querySelector(".formulario");
+// -- Función para mostrar en pantalla que los campos se completaron correctamente --
+function mostrarMensaje(mensaje) {
+  const alerta = document.createElement("P");
+  alerta.textContent = mensaje;
+  alerta.classList.add("correcto");
+  formulario.appendChild(alerta);
 
-// *Asigna la acción al evento
-formulario.addEventListener("submit", (evento) => {
-  evento.preventDefault();
-  console.log("enviando formulario");
-});
+  setTimeout(() => {
+    alerta.remove();
+  }, 2000);
+}
 
-/* -- Para los formularios se usa submit como evento -- */
+// -- Función para mostrar el texto de error en el HTML --
+function mostarError(mensaje) {
+  const error = document.createElement("P");
+  error.textContent = mensaje;
+  error.classList.add("error");
+
+  formulario.appendChild(error);
+
+  // Desaparecer alerta
+  setTimeout(() => {
+    error.remove();
+  }, 2000);
+}

@@ -1,10 +1,10 @@
 /* Seleccionar elementos de HTML */
 
 // querySelector
-const heading = document.querySelector('.header__texto h2') // retorna 0 o 1 elementos
+const heading = document.querySelector(".header__texto h2"); // retorna 0 o 1 elementos
 
-heading.textContent = "Nuevo heading" // Modifica el texto del contenido
-heading.classList.add("nueva-clase") // Agrega nueva clase
+heading.textContent = "Nuevo heading"; // Modifica el texto del contenido
+heading.classList.add("nueva-clase"); // Agrega nueva clase
 /* console.log(heading); */
 
 /* Se recomienda tener en cuenta BEM */
@@ -17,46 +17,47 @@ heading.classList.add("nueva-clase") // Agrega nueva clase
     que se le pase a la función querySelectroAll()
 */
 
-const enlaces = document.querySelectorAll('.navegacion a')
+const enlaces = document.querySelectorAll(".navegacion a");
 /* console.log(enlaces); */
 
 /* Acceder a un elemeto en específico */
 /* console.log(enlaces[0]); */
 
-enlaces[0].textContent = "nuevo enlace"
+enlaces[0].textContent = "nuevo enlace";
 
 /*  Modificar enlace del elemento */
-enlaces[0].href = 'https://www.google.com'
+enlaces[0].href = "https://www.google.com";
 
 /* Añadirle clase nueva */
-enlaces[0].classList.add('XD-class')
+enlaces[0].classList.add("XD-class");
 
 /* Remover una clase */
-enlaces[0].classList.remove('XD-class')
+enlaces[0].classList.remove("XD-class");
 
 //getElementById
-const heading2 = document.getElementById('heading') //Poco usado en nuevas versiones de JS
+const heading2 = document.getElementById("heading"); //Poco usado en nuevas versiones de JS
 /* console.log(heading2); */
 
 /* 146 - Crear HTML con createElement */
 
 // - Generar un nuevo enlace
-const nuevoEnlace = document.createElement('A') /* -- Se recomienda usar mayúscula -- */
+const nuevoEnlace =
+  document.createElement("A"); /* -- Se recomienda usar mayúscula -- */
 
 /* -- Agregar propiedades al elemento HTML -- */
 
 // - Agregar el href
-nuevoEnlace.href = 'nuevo-enlace.html'
+nuevoEnlace.href = "nuevo-enlace.html";
 
 // - Agregar el texto
-nuevoEnlace.textContent = 'Tienda virtual'
+nuevoEnlace.textContent = "Tienda virtual";
 
 // - Agregar la clases
-nuevoEnlace.classList.add('navegacion__enlace')
+nuevoEnlace.classList.add("navegacion__enlace");
 
 // - Agregarlo al documento
-const navegacion = document.querySelector('.navegacion')
-navegacion.appendChild(nuevoEnlace)
+const navegacion = document.querySelector(".navegacion");
+navegacion.appendChild(nuevoEnlace);
 
 //console.log(nuevoEnlace);
 
@@ -90,36 +91,49 @@ window.addEventListener('load', () => {
 
 /* 148 - Reaccionar a clicks en Js */
 /* -- Seleccionar elementos y asociarles un evento --  */
-const btnEnviar = document.querySelector('.boton--primario')
-btnEnviar.addEventListener('click', (evento) => {
-    console.log(evento);
-    evento.preventDefault()
-    // preventDefault() Previene la acción por defecto. Utíl para validar formulario
-    console.log("Enviando formulario");
-})
+/* const btnEnviar = document.querySelector(".boton--primario");
+btnEnviar.addEventListener("click", (evento) => {
+  console.log(evento);
+  evento.preventDefault();
+  // preventDefault() Previene la acción por defecto. Utíl para validar formulario
+  console.log("Enviando formulario");
+}); */
 
 /* 149 - EVENTOS CON EL TECLADO */
 
-// -- Eventos con los inputs y los text area -- 
+// -- Eventos con los inputs y los text area --
 const datos = {
-    nombre: '',
-    email: '',
-    mensaje: ''
-    // las llaves deben llevar el mismo nombre de los inputs
-}
-const nombre = document.querySelector("#nombre")
-const email = document.querySelector("#email")
-const mensaje = document.querySelector("#mensaje")
+  nombre: "",
+  email: "",
+  mensaje: "",
+  // las llaves deben llevar el mismo nombre de los inputs
+};
+const nombre = document.querySelector("#nombre");
+const email = document.querySelector("#email");
+const mensaje = document.querySelector("#mensaje");
 
-nombre.addEventListener('input', leerTexto)
-email.addEventListener('input', leerTexto)
-mensaje.addEventListener('input', leerTexto)
+nombre.addEventListener("input", leerTexto);
+email.addEventListener("input", leerTexto);
+mensaje.addEventListener("input", leerTexto);
 
 function leerTexto(e) {
-    // console.log(e.target.value);
-    datos[e.target.id] = e.target.value
-    datos[e.target.id] = e.target.value
-    datos[e.target.id] = e.target.value
+  // console.log(e.target.value);
+  datos[e.target.id] = e.target.value;
+  datos[e.target.id] = e.target.value;
+  datos[e.target.id] = e.target.value;
 
-    console.log(datos);
+  console.log(datos);
 }
+/* 150 - Eventos con formulario */
+// -- Evento con submit --
+
+// *Selecciona el elemento HTML
+const formulario = document.querySelector(".formulario");
+
+// *Asigna la acción al evento
+formulario.addEventListener("submit", (evento) => {
+  evento.preventDefault();
+  console.log("enviando formulario");
+});
+
+/* -- Para los formularios se usa submit como evento -- */

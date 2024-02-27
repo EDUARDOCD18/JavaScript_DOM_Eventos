@@ -128,12 +128,12 @@ formulario.addEventListener("submit", (evento) => {
   // -- Validar que los campos NO esten vacíos --
   // En caso de estar vacíos;
   if (nombre === "" || email === "" || mensaje === "") {
-    mostarError("Todos los campos son obligatorios");
+    mostrarAlerta("Todos los campos son obligatorios", "error");
     return; // corta el código si la condición se cumple
   }
 
   // -- Alerta de campos completados --
-  mostrarMensaje("Mensaje enviado correctamente");
+  mostrarAlerta("Mensaje enviado correctamente");
 
   console.log("enviando formulario");
 });
@@ -147,28 +147,20 @@ function leerTexto(e) {
   console.log(datos);
 }
 
-// -- Función para mostrar en pantalla que los campos se completaron correctamente --
-function mostrarMensaje(mensaje) {
+function mostrarAlerta(mensaje, error = null) {
   const alerta = document.createElement("P");
   alerta.textContent = mensaje;
-  alerta.classList.add("correcto");
+
+  if (error) {
+    alerta.classList.add("error");
+    console.log(alerta);
+  } else {
+    alerta.classList.add("correcto");
+    console.log(alerta);
+  }
   formulario.appendChild(alerta);
 
   setTimeout(() => {
     alerta.remove();
-  }, 2000);
-}
-
-// -- Función para mostrar el texto de error en el HTML --
-function mostarError(mensaje) {
-  const error = document.createElement("P");
-  error.textContent = mensaje;
-  error.classList.add("error");
-
-  formulario.appendChild(error);
-
-  // Desaparecer alerta
-  setTimeout(() => {
-    error.remove();
   }, 2000);
 }
